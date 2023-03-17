@@ -10,7 +10,7 @@ COPY . /app
 
 # Install gradio via pip
 RUN pip install gradio
-
+RUN pip install PyPDF2
 EXPOSE 2333
 
 
