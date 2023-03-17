@@ -48,4 +48,4 @@ with gr.Blocks() as demo:
 
 if __name__ == "__main__":
     demo.title = "CHATGPT-PAPER-READER"
-    demo.launch(server_port=2333)  # add "share=True" to share CHATGPT-PAPER-READER app on Internet.
+    demo.launch(server_port=2333, share=True)  # add "share=True" to share CHATGPT-PAPER-READER app on Internet.
