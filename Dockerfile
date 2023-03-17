@@ -19,4 +19,4 @@ EXPOSE 2333
 
 
 # Run python gui.py when the container launches
-CMD ["python", "gui.py"]
+CMD ["python", "/app/gui.py"]
