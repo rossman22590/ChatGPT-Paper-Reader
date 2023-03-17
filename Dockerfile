@@ -15,5 +15,6 @@ RUN apt-get install -y \
     curl
    
 RUN pip install gradio
+RUN pip install PyPDF2
 
 CMD ["python3", "gui.py"]
