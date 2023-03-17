@@ -1,22 +1,19 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim-buster
+ARG PY_VERSION=3.10
 
-# Set the working directory to /app
-WORKDIR /app
+FROM python:${PY_VERSION} as base
+FROM base as builder
+ARG PY_VERSION
+ARG TARGETPLATFORM
+ARG FULL
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+COPY . .
 
-
-
-# Install gradio via pip
+RUN apt-get update
+RUN apt-get install -y \
+    build-essential \
+    gcc \
+    curl
+   
 RUN pip install gradio
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Define environment variable
-ENV NAME World
-
-# Run python gui.py when the container launches
-CMD ["python", "gui.py"]
+CMD ["python3", "gui.py"]
